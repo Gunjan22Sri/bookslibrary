@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script th:inline="javascript">
+        function getValue() {
+            var val = window.location.href;
+            /*<![CDATA[*/
+            var showtext = "[[${val}]]";
+            console.log(showtext);
+            alert(showtext);
+
+
+            /*]]>*/
+
+            // < ![CDATA[
+
+            // var message = /*[[${message}]]*/ 'default';
+            // console.log(message);
+
+            // ]]>
+        }
+    </script>
+
+</head>
+
+<body onload="getValue()">
+    <h2>Book name</h2>
+    <h2>Author name</h2>
+    <h3>link</h3>
+
+
+
+    <!-- testing -->
+    <form action="#" th:action="@{/showdetail/book}" th:object="${form}" method="post">
+        <fieldset>
+            <input type="submit" id="submitButton" th:value="Save">
+            <input type="reset" id="resetButton" name="reset" th:value="Reset" />
+            <table>
+                <thead>
+                    <tr>
+                        <th> Title</th>
+                        <th> Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr th:each="book, itemStat : *{all_books}">
+                        <td><input th:field="*{all_books[__${itemStat.index}__].name}" /></td>
+                        <td><input th:field="*{all_books[__${itemStat.index}__].author}" /></td>
+                        <td><input th:field="*{all_books[__${itemStat.index}__].link}" /></td> -->
+
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+    <!-- end of testing -->
+
+</body>
+
+</html>
